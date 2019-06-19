@@ -1,0 +1,22 @@
+{
+  "name": "gp-site-biz",
+  "version": "0.1.2",
+  "description": "Gulp Small Biz Website Demo.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Gulp",
+    "Website"
+  ],
+  "author": "DYSLAB",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  }
+}

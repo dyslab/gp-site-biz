@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    //- favicon
+    //- link(rel='shortcut icon', href='./favicon.ico' type='image/x-icon')
+    //- link(rel='icon', href='./favicon.png', type='image/png')
+    //- link(rel='apple-touch-icon', sizes='180x180', href="./favicon.png")
+
+    //- common css, corresponding to the dir 'dist/'     
+    //- link(rel='stylesheet', href='../common/css/bootstrap.min.css')
+    //- link(rel='stylesheet', href='../common/css/all.min.css')
+
+    block header-scripts
+
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  body
+    block content
+
+    block footer-scripts
