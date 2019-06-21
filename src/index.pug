@@ -1,9 +1,17 @@
 extends base_layout
 
 block header-scripts
-    title 网站首页
+    title Gulp Demo Website 网站首页
 
 block body-contents
     //- Add contents here.
+    h1(class='am-kai') 
+        | The quick brown fox jumps over the lazy dog.
+        br
+        | 千万不要因为走得太久，而忘记了我们为什么出发。
+        br
+        | 千萬不要因為走得太久，而忘記了我們為什麼出發。
+        br
 
 block footer-scripts
+    script(src='./test.js')
