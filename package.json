@@ -1,6 +1,6 @@
 {
   "name": "gp-site-biz",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Gulp Small Biz Website Demo.",
   "main": "app.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
     "pug": "^2.0.4"
   }
 }

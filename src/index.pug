@@ -1,17 +1,25 @@
-extends base_layout
+extends baseviews/base_layout
 
 block header-scripts
     title Gulp Demo Website 网站首页
 
 block body-contents
     //- Add contents here.
-    h1(class='am-kai') 
-        | The quick brown fox jumps over the lazy dog.
-        br
-        | 千万不要因为走得太久，而忘记了我们为什么出发。
-        br
-        | 千萬不要因為走得太久，而忘記了我們為什麼出發。
-        br
+    div.am-g.am-g-fixed.am-center.am-padding-top-lg
+        div.am-u-12
+            p.am-kai.am-text-xxl.am-text-center
+                strong The quick brown fox jumps over the lazy dog.
+                br
+                strong 千万不要因为走得太久，而忘记了我们为什么出发。
+                br
+                strong 千萬不要因為走得太久，而忘記了我們為什麼出發。
+    div.am-g.am-g-fixed.am-padding-vertical-lg
+        div.am-u-12
+            h2
+                ul
+                    li 
+                        a(href="./news_20190401.html") news_20190401
+                    li 
+                        a(href="./news_20190400.html") news_20190400
 
 block footer-scripts
-    script(src='./test.js')
