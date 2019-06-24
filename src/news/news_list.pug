@@ -1,0 +1,33 @@
+extends ../baseviews/base_layout
+
+block header-scripts
+    title Gulp Demo Website 新闻列表页
+
+block body-contents
+    div.am-container
+        //- 新闻列表
+        each nitem in data.newslist
+            div.am-g.am-padding-lg
+                div.am-u-12
+                    a(href=`${nitem.id}.html`)
+                        h1.custom-news-title= nitem.title
+                div.am-u-12.am-link-muted.am-padding-bottom-sm
+                    span= nitem.datetime
+                div.am-u-12.am-link-muted
+                    span= nitem.preface
+
+        //- 新闻列表页面导航条
+        div.am-g
+            ul.am-pagination.am-pagination-centered
+                - var pageno = 1
+                while pageno <= data.pagecount
+                    -
+                        var active_class = ''
+                        if(pageno == data.currentpageno) {
+                            active_class = 'am-active'
+                        }
+                    li(class= active_class)
+                        a(href=`news_list_${pageno}.html`)= pageno
+                    - pageno++
+
+block footer-scripts

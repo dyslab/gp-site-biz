@@ -4,13 +4,13 @@ block header-scripts
     title Gulp Demo Website 新闻内容页
 
 block body-contents
-    //- Add contents here.
-    div.am-g.am-g-fixed
+    //- 新闻内容
+    div.am-g.am-g-fixed.am-padding-lg
         div.am-u-12
             center
                 h1.custom-news-title= data.title
                 div= data.datetime
-    div.am-g.am-g-fixed
+    div.am-g.am-g-fixed.am-padding-bottom-lg
         div.am-u-12
             article!= data.htmlcontent
 

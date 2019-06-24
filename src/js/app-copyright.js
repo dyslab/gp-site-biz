@@ -2,7 +2,7 @@ const sitename = 'Gulp Demo Site 演示网站';
 const fromyear = 2018;
 const toyear = (new Date()).getFullYear();
 
-document.write('<div class="am-g am-g-fixed"><hr><center>');
+document.write('<div class="am-g am-g-fixed am-padding-lg"><hr><center>');
 document.write(`<a class="am-link-muted" href="./">${sitename}</a> <span style="color: #999;">版权所有。 &copy; ${fromyear} - ${toyear}</span><br>`);
 document.write(
     '<small><span style="color: #999;">Powered by ' +
