@@ -9,9 +9,19 @@ const fs = require('fs');
 //  公共基础函数部分，开始
 //
 
-//  news数据处理：读取并返回所有需要显示的新闻列表数组
+//  json文件读取：读取指定json文件并返回对象
+function get_jsondata(filepath) {
+    return JSON.parse(fs.readFileSync(filepath));
+}
+
+//  mottos数据处理：读取并返回所有mottos数组
+function get_mottos() {
+    return get_jsondata('./src/mottos.json');
+}
+
+//  news数据处理：读取并返回所有新闻列表数组
 function get_news_all_list() {
-    return JSON.parse(fs.readFileSync('./src/news/news_all_list.json'));
+    return get_jsondata('./src/news/news_all_list.json');
 }
 
 //  news数据处理：从news json文件读取所需的news内容列表并返回
@@ -23,9 +33,9 @@ function get_news_jsons(news_all_list, start, end) {
     let news_jsons = [];
     if(start >= 0 && start < end) {
         let newsitem = null;
-        let read_news_list = news_all_list.slice(start, end)
+        let read_news_list = news_all_list.slice(start, end);
         for(let id in read_news_list) {
-            newsitem = JSON.parse(fs.readFileSync('./src/news/' + read_news_list[id] + '.json'))
+            newsitem = get_jsondata('./src/news/' + read_news_list[id] + '.json');
             news_jsons.push({
                 id: read_news_list[id],
                 title: newsitem.title,
@@ -34,7 +44,26 @@ function get_news_jsons(news_all_list, start, end) {
             });
         }
     }
-    return news_jsons
+    return news_jsons;
+}
+
+//  about页面数据处理：返回about页面所需数据
+function get_about_data() {
+    let aboutjson = get_jsondata('./src/about.json');
+    aboutjson.mottos = get_mottos();
+
+    return aboutjson;
+}
+
+//  index页面数据处理：返回index页面所需数据
+function get_index_data() {
+    const MAX_NEWS_ON_INDEX = 6 // index页面显示的新闻数量
+
+    let indexjson = {};
+    indexjson.mottos = get_mottos();
+    indexjson.newsjsons = get_news_jsons(get_news_all_list(), 0, MAX_NEWS_ON_INDEX);
+
+    return indexjson;
 }
 
 //
@@ -49,17 +78,19 @@ function get_news_jsons(news_all_list, start, end) {
 
 // PUG模板文件生成HTML（index page）
 function index2html() {
-    const MAX_NEWS_ON_INDEX = 6 // index页面显示的新闻数量
-    const news_jsons = get_news_jsons(get_news_all_list(), 0, MAX_NEWS_ON_INDEX);
-
-    // console.log(news_list);
-    return src('src/*.pug')
+    return src('src/index.pug')
     .pipe(pug({
-        locals : { 
-            data: { 
-                newsjsons: news_jsons
-            } 
-        }
+        locals : { data: get_index_data() }
+    }))
+    .pipe(dest('dist/'));
+}
+
+// PUG模板文件生成HTML（about page）
+function about2html() {
+    // console.log(news_list);
+    return src('src/about.pug')
+    .pipe(pug({
+        locals : { data: get_about_data() }
     }))
     .pipe(dest('dist/'));
 }
@@ -117,5 +148,5 @@ function babel2js() {
 // ===================================================================================================
 
 exports.news = parallel(index2html, news2html, newslist2html);
-exports.all = parallel(babel2js, index2html, news2html, newslist2html);
-exports.default = parallel(babel2js, index2html);
+exports.all = parallel(babel2js, index2html, about2html, news2html, newslist2html);
+exports.default = parallel(babel2js, index2html, about2html);

@@ -1,6 +1,6 @@
 {
   "name": "gp-site-biz",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Gulp Small Biz Website Demo.",
   "main": "app.js",
   "scripts": {

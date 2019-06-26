@@ -1,0 +1,58 @@
+extends baseviews/base_layout
+
+block header-scripts
+    title Gulp Demo Website 关于我们
+
+block body-contents
+    //- About Banner
+    div.gb-site-index-banner
+        div.am-g.am-g-fixed.am-center.am-padding-horizontal-lg
+            h1 Banner For About Page
+            p 关于我们标题图片
+
+    //- Company Information
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-building-o.am-margin-right-sm
+            span 企业介绍 Company Info
+        p!= data.companyinfo
+
+    //- Mottos
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-envira.am-margin-right-sm
+            span 箴言 Motto
+        p.am-kai.am-text-xxl.am-text-center
+            blockquote
+                each mitem in data.mottos
+                    span.am-text-xxl= mitem
+                    br
+
+    //- Slideshow For Compliments And Enterprise Culture Exhibitions
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-gift.am-margin-right-sm
+            span 企业荣誉与文化展示 Testimonials & Cultures
+        div.am-slider.am-slider-default.am-slider-carousel#company-slider(data-am-flexslider="{itemWidth: 368, itemMargin: 5}")
+            ul.am-slides
+                each pitem in data.companygallery
+                    li
+                        img(src=pitem)
+
+    //- Contact Information
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-map.am-margin-right-sm
+            span 联系方式 Contacts
+
+    //- Team/Leader/Crew
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-male.am-margin-right-sm
+            span 团队精英 Elites
+
+block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(4)").addClass("am-active");
+        });

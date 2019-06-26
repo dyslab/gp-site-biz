@@ -7,4 +7,4 @@ Gulp Small Biz Website Demo.
 
 `gulp all` Generate all pages.
 
-`gulp` Generate index pages, and process babel js files.
+`gulp` Generate index/about pages, and process babel js files.

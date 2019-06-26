@@ -8,7 +8,7 @@ block body-contents
 
     div.am-container
         //- Breadcrumb导航条
-        div.am-g.am-padding-lg
+        div.am-g.am-padding-vertical-lg
             ol.am-breadcrumb
                 li
                     a(href="./") 首页
@@ -26,7 +26,7 @@ block body-contents
                     span= nitem.preface
 
         //- 新闻列表页面导航条
-        div.am-g
+        div.am-g.am-padding-bottom-lg
             ul.am-pagination.am-pagination-centered
                 - var pageno = 1
                 while pageno <= data.pagecount

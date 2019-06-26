@@ -4,26 +4,29 @@ block header-scripts
     title Gulp Demo Website 网站首页
 
 block body-contents
+    //- Index Banner
     div.gb-site-index-banner
-        div.am-g.am-g-fixed.am-center.am-padding-lg
+        div.am-g.am-g-fixed.am-center.am-padding-horizontal-lg
             h1 Banner For Index Page
             p 首页的标题图片
 
-    //- Title
-    div.am-g.am-g-fixed.am-center.am-padding-top-lg
-        div.am-u-12
-            h1.am-link-muted
-                span.am-icon-envira.am-margin-right-sm
-                span 箴言 Motto
-            p.am-kai.am-text-xxl.am-text-center
-                strong The quick brown fox jumps over the lazy dog.
-                br
-                strong 千万不要因为走得太久，而忘记了我们为什么出发。
-                br
-                strong 千萬不要因為走得太久，而忘記了我們為什麼出發。
+    //- Random Motto
+    each mitem in data.mottos
+        span.hide-mottos.am-hide= mitem
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-envira.am-margin-right-sm
+            span 箴言 Motto
+        p.am-kai.am-text-xxl.am-text-center
+            strong 
+                blockquote.am-text-xxl#rand-motto
 
     //- News Links Part
-    div.am-g.am-g-fixed.am-padding-vertical-lg
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-bell-o.am-margin-right-sm
+            span 企业新闻 News
+    div.am-g.am-g-fixed.am-padding-vertical-xl.am-padding-horizontal-lg
         each nitem, index in data.newsjsons
             - 
                 end_class = ''
@@ -35,11 +38,16 @@ block body-contents
                     a(href=`./${nitem.id}.html`)= nitem.title
                 p.am-text-sm.am-link-muted= nitem.datetime
                 p.am-text-sm.am-link-muted= nitem.preface
-    div.am-g.am-g-fixed.am-padding-lg.am-text-right
+    div.am-g.am-g-fixed.am-text-right.am-padding-lg
         a(href="news_list_1.html") 更多新闻 >>>
 
 block footer-scripts
     script.
         $(document).ready(function() {
             $("ul.am-topbar-nav li:eq(0)").addClass("am-active");
+
+            // Random motto
+            var motto_count = $(".hide-mottos").length;
+            var rand_motto_id = Math.trunc(Math.random() * motto_count); 
+            $("#rand-motto").text($("span.hide-mottos:eq(" + rand_motto_id + ")").text());
         });
