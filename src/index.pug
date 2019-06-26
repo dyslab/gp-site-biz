@@ -4,11 +4,17 @@ block header-scripts
     title Gulp Demo Website 网站首页
 
 block body-contents
+    div.gb-site-index-banner
+        div.am-g.am-g-fixed.am-center.am-padding-lg
+            h1 Banner For Index Page
+            p 首页的标题图片
+
     //- Title
     div.am-g.am-g-fixed.am-center.am-padding-top-lg
         div.am-u-12
-            h1
-                i.am-link-muted 箴言 Motto
+            h1.am-link-muted
+                span.am-icon-envira.am-margin-right-sm
+                span 箴言 Motto
             p.am-kai.am-text-xxl.am-text-center
                 strong The quick brown fox jumps over the lazy dog.
                 br
@@ -33,3 +39,7 @@ block body-contents
         a(href="news_list_1.html") 更多新闻 >>>
 
 block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(0)").addClass("am-active");
+        });

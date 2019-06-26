@@ -1,10 +1,10 @@
 # gp-site-biz
 Gulp Small Biz Website Demo.
 
-## Brief Intro:
+**Brief Intro:**
 
 `gulp news` Generate news-related pages.
 
 `gulp all` Generate all pages.
 
-`gulp` Only process babel js files.
+`gulp` Generate index pages, and process babel js files.

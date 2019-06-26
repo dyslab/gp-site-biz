@@ -1,0 +1,23 @@
+header.am-topbar.am-topbar-fixed-top
+    div.am-container
+        h1.am-topbar-brand
+            a.am-text-ir(href="./") 
+        h1.am-topbar-brand
+            a(href="./")  Gulp Demo Biz Site
+
+        button.am-topbar-btn.am-topbar-toggle.am-btn.am-btn-sm.am-btn-success.am-show-sm-only(data-am-collapse="{target: '#app-topbar-collapse'}")
+            span.am-sr-only 导航切换
+            span.am-icon-bars
+
+        div.am-collapse.am-topbar-collapse(id="app-topbar-collapse")
+            ul.am-nav.am-nav-pills.am-topbar-nav.am-topbar-right
+                li
+                    a(href="./") 首页
+                li.am-disabled
+                    a(href="./product_list.html") 产品
+                li.am-disabled
+                    a(href="./service_list.html") 服务
+                li
+                    a(href="./news_list_1.html") 新闻
+                li.am-disabled
+                    a(href="./about.html") 关于我们

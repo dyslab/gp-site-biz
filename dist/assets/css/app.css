@@ -1,1 +1,31 @@
-/* Write your styles */
+/* Customize App Styles */
+
+/*
+ *
+ *  For All pages
+ *
+ */
+
+/* Brand Logo on top menu */
+.am-topbar .am-text-ir {
+    display: block;
+    margin-top: 8px;
+    margin-right: 0px;
+    height: 32px;
+    width: 32px;
+    background: url(../fav/favicon.png) no-repeat left center;
+    -webkit-background-size: 32px 32px;
+    background-size: 32px 32px;
+  }
+
+/*
+ *
+ *  For Index pages
+ *
+ */
+.gb-site-index-banner {
+  background: url(../fav/favbanner.png) left top #f0f0f0;
+  overflow-y: hidden;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

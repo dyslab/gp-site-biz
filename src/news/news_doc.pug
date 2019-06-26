@@ -4,14 +4,30 @@ block header-scripts
     title Gulp Demo Website 新闻内容页
 
 block body-contents
-    //- 新闻内容
-    div.am-g.am-g-fixed.am-padding-lg
-        div.am-u-12
-            center
-                h1.custom-news-title= data.title
-                div= data.datetime
-    div.am-g.am-g-fixed.am-padding-bottom-lg
-        div.am-u-12
-            article!= data.htmlcontent
+    include news_banner
+
+    div.am-container
+        //- Breadcrumb导航条
+        div.am-g.am-padding-lg
+            ol.am-breadcrumb
+                li
+                    a(href="./") 首页
+                li
+                    a(href="./news_list_1.html") 新闻
+                li.am-active= data.title
+
+        //- 新闻内容
+        div.am-g.am-padding-bottom-lg
+            div.am-u-12
+                center
+                    h1.custom-news-title= data.title
+                    div= data.datetime
+        div.am-g.am-padding-bottom-lg
+            div.am-u-12
+                article.am-article!= data.htmlcontent
 
 block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(3)").addClass("am-active");
+        });

@@ -4,10 +4,19 @@ block header-scripts
     title Gulp Demo Website 新闻列表页
 
 block body-contents
+    include news_banner
+
     div.am-container
+        //- Breadcrumb导航条
+        div.am-g.am-padding-lg
+            ol.am-breadcrumb
+                li
+                    a(href="./") 首页
+                li.am-active 新闻
+
         //- 新闻列表
         each nitem in data.newslist
-            div.am-g.am-padding-lg
+            div.am-g.am-padding-bottom-lg
                 div.am-u-12
                     a(href=`${nitem.id}.html`)
                         h1.custom-news-title= nitem.title
@@ -31,3 +40,7 @@ block body-contents
                     - pageno++
 
 block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(3)").addClass("am-active");
+        });
