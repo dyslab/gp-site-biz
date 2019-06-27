@@ -1,6 +1,6 @@
 {
-    "companyinfo": "<p style='font-style: italic;'><strong>愿你一生，清澈至极。</strong>一世无忧，且慢慢长大。<br>愿你能忠于自己，忠于本初；忠于职守，也忠于人品。愿你，归来仍有星辰，嫁给的是爱情，还愿你那前程似锦，强大到独立、无需提醒的自觉、与无需刻意的去迎逢。<br>放下，遗忘，才是最快乐的人，学会从容于生活的善良。在奔往梦想的道路上，永不言弃，在纯白的诗笺上欢歌雀跃；在岁月的堤岸上慢慢行走，在生命的旅途中去遇见，那个更好的你。<br>此时的外面，也正在下着雨，平静如水，内心却也能够坚定如山。说到“如山”最近好像也悟出了一个道理，至少我们，不得学会像父亲一样的，可以承载着，像一座山一样的山魂吗?<br>所以还是那句，不乱于心，便不困于情；不畏将来，便无需念及过往。<br><strong>如此，甚好。</strong></p><div class='am-text-right am-padding-horizontal-lg'><small>—— 摘自 <a href='http://www.duanwenxue.com' target='_blank'>短文学网</a></small></div>",
-    "companygallery": [
+    "intro": "<p style='font-style: italic;'><strong>愿你一生，清澈至极。</strong>一世无忧，且慢慢长大。<br>愿你能忠于自己，忠于本初；忠于职守，也忠于人品。愿你，归来仍有星辰，嫁给的是爱情，还愿你那前程似锦，强大到独立、无需提醒的自觉、与无需刻意的去迎逢。<br>放下，遗忘，才是最快乐的人，学会从容于生活的善良。在奔往梦想的道路上，永不言弃，在纯白的诗笺上欢歌雀跃；在岁月的堤岸上慢慢行走，在生命的旅途中去遇见，那个更好的你。<br>此时的外面，也正在下着雨，平静如水，内心却也能够坚定如山。说到“如山”最近好像也悟出了一个道理，至少我们，不得学会像父亲一样的，可以承载着，像一座山一样的山魂吗?<br>所以还是那句，不乱于心，便不困于情；不畏将来，便无需念及过往。<br><strong>如此，甚好。</strong></p><div class='am-text-right am-padding-horizontal-lg'><small>—— 摘自 <a href='http://www.duanwenxue.com' target='_blank'>短文学网</a></small></div>",
+    "gallery": [
         "./assets/imgs/sample-1.jpg",
         "./assets/imgs/sample-2.jpg",
         "./assets/imgs/sample-3.jpg",
@@ -9,5 +9,29 @@
         "./assets/imgs/sample-6.jpg",
         "./assets/imgs/sample-7.jpg",
         "./assets/imgs/sample-8.jpg"
+    ],
+    "contacts" : [
+        {
+            "name": "中国ABC技术有限公司（总部）",
+            "address": "北京市海淀区长安街东大门123号（100123）",
+            "phone": "电话：010-888123123 传真：010-888128128",
+            "email": "frontdesk@abc-china.com",
+            "image": "./assets/imgs/map-1.jpg",
+            "other": [
+                "总部QQ: 999777123456",
+                "Facebook: beijing-abc-china"
+            ]
+        },
+        {
+            "name": "ABC上海分公司",
+            "address": "上海市徐汇区外滩路988号1801-1805室",
+            "phone": "电话：021-888123123 传真：021-888128128",
+            "email": "shanghai@abc-china.com",
+            "image": "./assets/imgs/map-2.jpg",
+            "other": [
+                "分公司QQ: 999777456123",
+                "Branch Facebook: sh-abc-china"
+            ]
+        }
     ]
 }

@@ -19,6 +19,11 @@ function get_mottos() {
     return get_jsondata('./src/mottos.json');
 }
 
+//  staff数据处理：读取并返回所有staff数组
+function get_staff() {
+    return get_jsondata('./src/staff.json');
+}
+
 //  news数据处理：读取并返回所有新闻列表数组
 function get_news_all_list() {
     return get_jsondata('./src/news/news_all_list.json');
@@ -51,6 +56,7 @@ function get_news_jsons(news_all_list, start, end) {
 function get_about_data() {
     let aboutjson = get_jsondata('./src/about.json');
     aboutjson.mottos = get_mottos();
+    aboutjson.staff = get_staff();
 
     return aboutjson;
 }

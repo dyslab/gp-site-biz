@@ -1,0 +1,38 @@
+[
+    {
+        "name": "叮噹猫",
+        "avatar": "./assets/imgs/avatar-1.jpg",
+        "phone": "139 7747 0000",
+        "email": "xyz@abc-china.com",
+        "socialmedia": [
+            "QQ: 9999666600"
+        ]
+    },
+    {
+        "name": "Sailor Moon",
+        "avatar": "./assets/imgs/avatar-2.jpg",
+        "phone": "138 2222 1111",
+        "email": "ffxyz@abc-china.com",
+        "socialmedia": [
+            "微信: fffxyzabc"
+        ]
+    },
+    {
+        "name": "天然呆",
+        "avatar": "./assets/imgs/avatar-3.jpg",
+        "phone": "无",
+        "email": "666@abc-china.com",
+        "socialmedia": [
+            "QQ: 666809786"
+        ]
+    },
+    {
+        "name": "小屁孩",
+        "avatar": "./assets/imgs/avatar-4.jpg",
+        "phone": "+87 1868256333",
+        "email": "wow@abc-china.com",
+        "socialmedia": [
+            "微信: ffxph-abc"
+        ]
+    }
+]

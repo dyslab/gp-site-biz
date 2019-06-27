@@ -15,7 +15,7 @@ block body-contents
         h1.am-link-muted
             span.am-icon-building-o.am-margin-right-sm
             span 企业介绍 Company Info
-        p!= data.companyinfo
+        p!= data.intro
 
     //- Mottos
     div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
@@ -35,7 +35,7 @@ block body-contents
             span 企业荣誉与文化展示 Testimonials & Cultures
         div.am-slider.am-slider-default.am-slider-carousel#company-slider(data-am-flexslider="{itemWidth: 368, itemMargin: 5}")
             ul.am-slides
-                each pitem in data.companygallery
+                each pitem in data.gallery
                     li
                         img(src=pitem)
 
@@ -44,12 +44,58 @@ block body-contents
         h1.am-link-muted
             span.am-icon-map.am-margin-right-sm
             span 联系方式 Contacts
+        div.am-g.am-margin-top-lg
+            each citem, index in data.contacts
+                - 
+                    end_class = ''
+                    if(index == data.contacts.length-1) {
+                        end_class = 'am-u-end'
+                    }
+                div.am-u-12.am-u-md-6.am-padding-sm.am-md-padding-0(class=end_class)
+                    h2= citem.name
+                    p
+                        span.am-icon-map-signs
+                        span.am-margin-left-sm= citem.address
+                    p
+                        span.am-icon-phone
+                        span.am-margin-left-sm= citem.phone
+                    p
+                        span.am-icon-envelope-o
+                        a.am-margin-left-sm(href=`mailto:${citem.email}`)= citem.email
+                    each oitem in citem.other
+                        p
+                            span.am-icon-smile-o
+                            span.am-margin-left-sm!= oitem
+                    if citem.image != ''
+                        p
+                            img.am-img-responsive(src= citem.image)
 
-    //- Team/Leader/Crew
+    //- Staff/Leadership/Crew
     div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
         h1.am-link-muted
             span.am-icon-male.am-margin-right-sm
             span 团队精英 Elites
+        div.am-g.am-margin-top-lg
+            each citem, index in data.staff
+                - 
+                    end_class = ''
+                    if(index == data.staff.length-1) {
+                        end_class = 'am-u-end'
+                    }
+                div.am-u-6.am-u-md-4.am-padding-sm.am-md-padding-0.am-text-center(class=end_class)
+                    div.am-padding-lg
+                        img.am-img-responsive.am-circle(src= citem.avatar)
+                    h3= citem.name
+                    p
+                        span.am-icon-mobile
+                        span.am-margin-left-sm= citem.phone
+                    p
+                        span.am-icon-envelope-o
+                        a.am-margin-left-sm(href=`mailto:${citem.email}`)= citem.email
+                    each oitem in citem.socialmedia
+                        p
+                            span.am-icon-smile-o
+                            span.am-margin-left-sm!= oitem
 
 block footer-scripts
     script.
