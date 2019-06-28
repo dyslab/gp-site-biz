@@ -15,30 +15,27 @@ block body-contents
         span.hide-mottos.am-hide= mitem
     div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
         h1.am-link-muted
-            span.am-icon-envira.am-margin-right-sm
-            span 箴言 Motto
+            span.am-icon-envira.am-margin-right-sm.custom-text-shadow
+            span.custom-text-shadow 箴言 Motto
         p.am-kai.am-text-xxl.am-text-center
             strong 
                 blockquote.am-text-xxl#rand-motto
 
     //- News Links Part
-    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+    div.am-g.am-g-fixed.am-padding-top-xl.am-padding-horizontal-lg
         h1.am-link-muted
-            span.am-icon-bell-o.am-margin-right-sm
-            span 企业新闻 News
+            span.am-icon-bell-o.am-margin-right-sm.custom-text-shadow
+            span.custom-text-shadow 企业新闻 News
     div.am-g.am-g-fixed.am-padding-vertical-xl.am-padding-horizontal-lg
-        each nitem, index in data.newsjsons
-            - 
-                end_class = ''
-                if(index == data.newsjsons.length-1) {
-                    end_class = 'am-u-end'
-                }
-            div.am-u-12.am-u-md-6(class=end_class)
-                strong 
-                    a(href=`./${nitem.id}.html`)= nitem.title
-                p.am-text-sm.am-link-muted= nitem.datetime
-                p.am-text-sm.am-link-muted= nitem.preface
-    div.am-g.am-g-fixed.am-text-right.am-padding-lg
+        ul.am-avg-sm-1.am-avg-md-2
+            each nitem in data.newsjsons
+                li
+                    div.am-margin-horizontal-xs
+                        strong 
+                            a(href=`./${nitem.id}.html`)= nitem.title
+                        p.am-text-sm.am-link-muted= nitem.datetime
+                        p.am-text-sm.am-link-muted= nitem.preface
+    div.am-g.am-g-fixed.am-text-right.am-padding-bottom-xl.am-padding-horizontal-lg
         a(href="news_list_1.html") 更多新闻 >>>
 
 block footer-scripts

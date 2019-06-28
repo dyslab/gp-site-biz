@@ -9,9 +9,19 @@ const fs = require('fs');
 //  公共基础函数部分，开始
 //
 
-//  json文件读取：读取指定json文件并返回对象
+//  json文件读取（含异常处理）：读取指定json文件并返回对象
 function get_jsondata(filepath) {
-    return JSON.parse(fs.readFileSync(filepath));
+    if (fs.existsSync(filepath)) {
+        try {
+            return JSON.parse(fs.readFileSync(filepath));
+        } catch(e) {
+            console.log(`*** 应用程序提示：无法解析“${filepath}”文件为json对象，请检查文件内容格式是否有错。`);
+            return {};
+        }
+    } else {
+        console.log(`*** 应用程序提示：“${filepath}”文件不存在，请检查。`);
+        return {};
+    }
 }
 
 //  mottos数据处理：读取并返回所有mottos数组
@@ -25,20 +35,20 @@ function get_staff() {
 }
 
 //  news数据处理：读取并返回所有新闻列表数组
-function get_news_all_list() {
-    return get_jsondata('./src/news/news_all_list.json');
+function get_news_list() {
+    return get_jsondata('./src/news/news_list.json');
 }
 
 //  news数据处理：从news json文件读取所需的news内容列表并返回
 //  参数：
-//      news_all_list: 所有需要显示的新闻列表数组，由'./src/news/news_all_list.json'读取。
+//      news_list: 所有需要显示的新闻列表数组，由'./src/news/news_list.json'读取。
 //      start： 新闻列表读取开始位置
 //      end： 新闻列表读取结束位置（不包括）
-function get_news_jsons(news_all_list, start, end) {
+function get_news_jsons(news_list, start, end) {
     let news_jsons = [];
     if(start >= 0 && start < end) {
         let newsitem = null;
-        let read_news_list = news_all_list.slice(start, end);
+        let read_news_list = news_list.slice(start, end);
         for(let id in read_news_list) {
             newsitem = get_jsondata('./src/news/' + read_news_list[id] + '.json');
             news_jsons.push({
@@ -50,6 +60,24 @@ function get_news_jsons(news_all_list, start, end) {
         }
     }
     return news_jsons;
+}
+
+//  product_list页面数据处理：返回product_list页面所需数据
+function get_product_list_data() {
+    let plistjson = get_jsondata('./src/products/product_list.json');
+    for(let cid in plistjson) {
+        plistjson[cid].products_link = []
+        for (let pid in plistjson[cid].products) {
+            let tmpobj = get_jsondata(`./src/products/${plistjson[cid].products[pid]}.json`);
+            plistjson[cid].products_link.push({
+                id: plistjson[cid].products[pid],
+                name: tmpobj.name,
+                image: tmpobj.image
+            })
+        }
+    }
+
+    return { productlist: plistjson };
 }
 
 //  about页面数据处理：返回about页面所需数据
@@ -67,7 +95,7 @@ function get_index_data() {
 
     let indexjson = {};
     indexjson.mottos = get_mottos();
-    indexjson.newsjsons = get_news_jsons(get_news_all_list(), 0, MAX_NEWS_ON_INDEX);
+    indexjson.newsjsons = get_news_jsons(get_news_list(), 0, MAX_NEWS_ON_INDEX);
 
     return indexjson;
 }
@@ -81,6 +109,73 @@ function get_index_data() {
 //
 //  Task函数部分，开始
 //
+
+// PUG模板文件生成HTML（新闻列表）
+function newslist2html(cb) {
+    const MAX_NEWS_PER_PAGE = 3 // 新闻列表页每页显示的新闻数量
+    const news_list = get_news_list();
+    const pagecount = Math.trunc((news_list.length - 1) / MAX_NEWS_PER_PAGE) + 1; // 获取新闻导航列表页的总页数。
+
+    for(let id = 1; id <= pagecount; id ++) {
+        src('src/news/news_list.pug')
+        .pipe(pug({
+            locals : { 
+                data: {
+                    currentpageno: id,
+                    pagecount: pagecount,
+                    newslist: get_news_jsons(news_list, (id - 1) * MAX_NEWS_PER_PAGE, id * MAX_NEWS_PER_PAGE)
+                }
+            }
+        }))
+        .pipe(rename({ basename: `news_list_${id}` }))
+        .pipe(dest('dist/'));
+        cb();
+    }
+}
+
+// PUG模板文件生成HTML（新闻文档）
+function news2html(cb) {
+    const news_docs_generate_list = get_jsondata('./src/news/news_docs_generate_list.json');
+
+    for(let id in news_docs_generate_list) {
+        src('src/news/news_doc.pug')
+        .pipe(pug({
+            locals : { data: get_jsondata(`./src/news/${news_docs_generate_list[id]}.json`) }
+        }))
+        .pipe(rename({ basename: news_docs_generate_list[id] }))
+        .pipe(dest('dist/'));
+        cb();
+    }
+}
+
+// PUG模板文件生成HTML（产品列表）
+function productslist2html() {
+    return src('src/products/product_list.pug')
+    .pipe(pug({
+        locals : { data: get_product_list_data() }
+    }))
+   .pipe(dest('dist/'));
+}
+
+// PUG模板文件生成HTML（产品文档）
+function products2html(cb) {
+    const product_list = get_jsondata('./src/products/product_list.json');
+
+    for(let cid in product_list) {
+        for(let pid in product_list[cid].products) {
+            let fpath = `./src/products/${product_list[cid].products[pid]}.json`;
+            if (fs.existsSync(fpath)) {
+                src('src/products/product_doc.pug')
+                .pipe(pug({
+                    locals : { data: get_jsondata(fpath) }
+                }))
+                .pipe(rename({ basename: `product_${product_list[cid].products[pid]}` }))
+                .pipe(dest('dist/'));
+                cb();
+            }
+        }
+    }
+}
 
 // PUG模板文件生成HTML（index page）
 function index2html() {
@@ -101,44 +196,6 @@ function about2html() {
     .pipe(dest('dist/'));
 }
 
-// PUG模板文件生成HTML（新闻列表序列）
-function newslist2html(cb) {
-    const MAX_NEWS_PER_PAGE = 3 // 新闻列表页每页显示的新闻数量
-    const news_all_list = get_news_all_list();
-    const pagecount = Math.trunc((news_all_list.length - 1) / MAX_NEWS_PER_PAGE) + 1; // 获取新闻导航列表页的总页数。
-
-    for(let id = 1; id <= pagecount; id ++) {
-        src('src/news/news_list.pug')
-        .pipe(pug({
-            locals : { 
-                data: {
-                    currentpageno: id,
-                    pagecount: pagecount,
-                    newslist: get_news_jsons(news_all_list, (id - 1) * MAX_NEWS_PER_PAGE, id * MAX_NEWS_PER_PAGE)
-                }
-            }
-        }))
-        .pipe(rename({ basename: `news_list_${id}` }))
-        .pipe(dest('dist/'));
-        cb();
-    }
-}
-
-// PUG模板文件生成HTML（新闻文档）
-function news2html(cb) {
-    const news_docs_generate_list = JSON.parse(fs.readFileSync('./src/news/news_docs_generate_list.json'));
-
-    for(let id in news_docs_generate_list) {
-        src('src/news/news_doc.pug')
-        .pipe(pug({
-            locals : { data: JSON.parse(fs.readFileSync('./src/news/' + news_docs_generate_list[id] + '.json')) }
-        }))
-        .pipe(rename({ basename: news_docs_generate_list[id] }))
-        .pipe(dest('dist/'));
-        cb();
-    }
-}
-
 // 处理客户端JS文件
 function babel2js() {
     return src('src/js/*.js')
@@ -153,6 +210,11 @@ function babel2js() {
 //
 // ===================================================================================================
 
+exports.default = series(babel2js, parallel(index2html, about2html));
 exports.news = parallel(index2html, news2html, newslist2html);
-exports.all = parallel(babel2js, index2html, about2html, news2html, newslist2html);
-exports.default = parallel(babel2js, index2html, about2html);
+exports.products = parallel(index2html, products2html, productslist2html);
+exports.all = series(babel2js, parallel(
+    index2html, about2html, 
+    news2html, newslist2html,
+    products2html, productslist2html
+));

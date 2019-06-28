@@ -1,0 +1,35 @@
+extends ../baseviews/base_layout
+
+block header-scripts
+    title Gulp Demo Website 产品列表页
+
+block body-contents
+    include products_banner
+
+    div.am-container
+        //- Breadcrumb导航条
+        div.am-g.am-padding-vertical-lg
+            ol.am-breadcrumb
+                li
+                    a(href="./") 首页
+                li.am-active 产品
+
+        //- 产品列表
+        each citem in data.productlist
+            div.am-g.am-padding-bottom-lg
+                div.am-u-12.am-padding-bottom-sm
+                    h1.custom-text-shadow= citem.name
+                ul.am-avg-sm-1.am-avg-md-3
+                    each pitem in citem.products_link
+                        li
+                            a(href=`product_${pitem.id}.html`)
+                                div.am-padding-sm
+                                    div.gb-site-products-panel.am-text-center
+                                        img.am-img-responsive(src= pitem.image)
+                                        h3= pitem.name
+
+block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(1)").addClass("am-active");
+        });

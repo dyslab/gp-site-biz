@@ -6,17 +6,42 @@
  *
  */
 
+/* Smooth scroll with only CSS */
+html {
+	scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* Custom Shadow Style */
+.custom-text-shadow {
+  text-shadow: 1px 1px 1px darkgray;
+  -webkit-text-shadow: 1px 1px 1px darkgray;
+  -moz-text-shadow: 1px 1px 1px darkgray;
+  -ms-text-shadow: 1px 1px 1px darkgray
+}
+.custom-text-shadow-m {
+  text-shadow: 2px 2px 2px darkgray;
+  -webkit-text-shadow: 2px 2px 2px darkgray;
+  -moz-text-shadow: 2px 2px 2px darkgray;
+  -ms-text-shadow: 2px 2px 2px darkgray
+}
+
 /* Brand Logo on top menu */
 .am-topbar .am-text-ir {
-    display: block;
-    margin-top: 8px;
-    margin-right: 0px;
-    height: 32px;
-    width: 32px;
-    background: url(../fav/favicon.png) no-repeat left center;
-    -webkit-background-size: 32px 32px;
-    background-size: 32px 32px;
-  }
+  display: block;
+  margin-top: 8px;
+  margin-right: 0px;
+  height: 32px;
+  width: 32px;
+  background: url(../fav/favicon.png) no-repeat left center;
+  -webkit-background-size: 32px 32px;
+  background-size: 32px 32px;
+}
 
 /*
  *
@@ -28,4 +53,22 @@
   overflow-y: hidden;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+/*
+ *
+ *  For Products pages
+ *
+ */
+.gb-site-products-panel {
+  padding: 1rem;
+  transition: top 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  top: 0;
+  position: relative;
+}
+.gb-site-products-panel:hover {
+  border-color: #ddd;
+  top: -0.15rem;
+  box-shadow: 0 0.5rem 1rem rgba(52, 58, 64, 0.15); 
 }

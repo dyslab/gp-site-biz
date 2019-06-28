@@ -1,0 +1,25 @@
+{
+    "name": "海尔乐享X1商务一体机",
+    "image": "./assets/imgs/products/x1_01.jpg",
+    "content": [
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_images",
+            "data": [
+                "./assets/imgs/products/x1_11.jpg",
+                "./assets/imgs/products/x1_12.jpg",
+                "./assets/imgs/products/x1_13.jpg",
+                "./assets/imgs/products/x1_14.jpg",
+                "./assets/imgs/products/x1_15.jpg",
+                "./assets/imgs/products/x1_16.jpg"
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        }
+    ]
+}

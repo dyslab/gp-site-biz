@@ -1,0 +1,20 @@
+{
+    "name": "惠普HP24一体机台式电脑",
+    "image": "./assets/imgs/products/hp24_01.jpg",
+    "content": [
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_images",
+            "data": [
+                "./assets/imgs/products/hp24_01.jpg"
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+extends ../baseviews/base_layout
+
+block header-scripts
+    title Gulp Demo Website 产品列表页
+
+block body-contents
+    include products_banner
+    include products_widgets
+
+    div.am-container
+        //- Breadcrumb导航条
+        div.am-g.am-padding-vertical-lg
+            ol.am-breadcrumb
+                li
+                    a(href="./") 首页
+                li
+                    a(href="./product_list.html") 产品
+                li.am-active 详情
+
+        //- 产品列表
+        div.am-g
+            div.am-u-12.am-padding-bottom-lg.am-text-center
+                span.am-text-xxl.custom-text-shadow-m= data.name
+            each widget_content in data.content
+                +output_widget(widget_content.widget, widget_content.data)
+
+block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(1)").addClass("am-active");
+        });
