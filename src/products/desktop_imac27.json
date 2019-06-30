@@ -1,0 +1,53 @@
+{
+    "name": "iMac 27英寸 5K屏 3.0GHz六核CPU",
+    "image": "./assets/imgs/products/imac27_01.jpg",
+    "content": [{
+        "widget": "wid_images",
+        "data": [
+            "./assets/imgs/products/imac27_02.jpg"
+        ]
+    }, {
+        "widget": "wid_layout_tabs",
+        "data": [
+            {
+                "name": "性能参数",
+                "data": [
+                    {
+                        "widget": "wid_vertical_space",
+                        "data": "32px"
+                    },
+                    {
+                        "widget": "wid_text",
+                        "data": "<h2>视网膜 5K 显示屏<br>3.0GHz 六核处理器，<br>Turbo Boost 最高可达 4.1GHz<br>1TB 存储容量</h2><p><span class='am-icon-info-circle am-margin-right-sm'></span>3.0GHz 六核第八代 Intel Core i5 处理器</p><p><span class='am-icon-info-circle am-margin-right-sm'></span>Turbo Boost 最高可达 4.1GHz</p><p><span class='am-icon-info-circle am-margin-right-sm'></span>8GB 2666MHz DDR4 内存</p><p><span class='am-icon-info-circle am-margin-right-sm'></span>1TB 融合硬盘<sup>1</sup></p><p><span class='am-icon-info-circle am-margin-right-sm'></span>Radeon Pro 570X 图形处理器 (配备 4GB GDDR5 显存)</p><p><span class='am-icon-info-circle am-margin-right-sm'></span>两个雷雳 3 端口</p><p><span class='am-icon-info-circle am-margin-right-sm'></span>视网膜 5K 5120 x 2880 P3 显示屏 </p><p><br></p><hr><p><ol class='am-text-xs'><li>1GB = 10 亿字节，1TB = 1 万亿字节；格式化之后的实际容量可能较小。</ol></p>"
+                    },
+                    {
+                        "widget": "wid_vertical_space",
+                        "data": "32px"
+                    }
+                ]
+            },
+            {
+                "name": "包装内容",
+                "data": [
+                    {
+                        "widget": "wid_images",
+                        "data": [
+                            "./assets/imgs/products/imac27_11.jpg"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "购买须知",
+                "data": [
+                    {
+                        "widget": "wid_images",
+                        "data": [
+                            "./assets/imgs/products/imac27_12.jpg"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }]
+}

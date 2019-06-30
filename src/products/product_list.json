@@ -5,16 +5,16 @@
         "products": [
             "desktop_x1",
             "desktop_hp24",
-            "desktop_nb18",
-            "desktop_c330"
+            "desktop_aio520c",
+            "desktop_imac27"
         ]
     },
     {
         "id": "notebook",
         "name": "笔记本电脑",
         "products": [
-            "notebook_ne38",
-            "notebook_k56pro"
+            "notebook_xpro",
+            "notebook_macbookair"
         ]
     }
 ]

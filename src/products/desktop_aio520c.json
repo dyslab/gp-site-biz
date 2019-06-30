@@ -1,0 +1,89 @@
+{
+    "name": "AIO520C致美商务一体机",
+    "image": "./assets/imgs/products/aio520c_01.jpg",
+    "content": [{
+        "widget": "wid_layout_shortcut",
+        "data": [
+            {
+                "widget": "wid_vertical_space",
+                "data": "16px"
+            },
+            {
+                "widget": "wid_tag",
+                "data": {
+                    "name": "双色机身",
+                    "tag": "part1"
+                }
+            },
+            {
+                "widget": "wid_images",
+                "data": [
+                    "./assets/imgs/products/aio520c_11.jpg",
+                    "./assets/imgs/products/aio520c_12.jpg"
+                ]
+            },
+            {
+                "widget": "wid_tag",
+                "data": {
+                    "name": "显示屏",
+                    "tag": "part2"
+                }
+            },
+            {
+                "widget": "wid_images",
+                "data": [
+                    "./assets/imgs/products/aio520c_13.jpg",
+                    "./assets/imgs/products/aio520c_14.jpg",
+                    "./assets/imgs/products/aio520c_15.jpg",
+                    "./assets/imgs/products/aio520c_16.jpg"
+                ]
+            },
+            {
+                "widget": "wid_tag",
+                "data": {
+                    "name": "高效性能",
+                    "tag": "part3"
+                }
+            },
+            {
+                "widget": "wid_images",
+                "data": [
+                    "./assets/imgs/products/aio520c_17.jpg",
+                    "./assets/imgs/products/aio520c_21.jpg"
+                ]
+            },
+            {
+                "widget": "wid_tag",
+                "data": {
+                    "name": "扩展能力",
+                    "tag": "part4"
+                }
+            },
+            {
+                "widget": "wid_images",
+                "data": [
+                    "./assets/imgs/products/aio520c_18.jpg",
+                    "./assets/imgs/products/aio520c_19.jpg",
+                    "./assets/imgs/products/aio520c_20.jpg"
+                ]
+            },
+            {
+                "widget": "wid_tag",
+                "data": {
+                    "name": "键鼠搭配",
+                    "tag": "part5"
+                }
+            },
+            {
+                "widget": "wid_images",
+                "data": [
+                    "./assets/imgs/products/aio520c_22.jpg"
+                ]
+            },
+            {
+                "widget": "wid_vertical_space",
+                "data": "32px"
+            }
+        ]
+    }]
+}

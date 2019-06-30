@@ -1,0 +1,28 @@
+{
+    "name": "MacBook Air 13.3英寸128G笔记本电脑",
+    "image": "./assets/imgs/products/macbookair_01.jpg",
+    "content": [
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_slider",
+            "data": [
+                "./assets/imgs/products/macbookair_01.jpg",
+                "./assets/imgs/products/macbookair_02.jpg",
+                "./assets/imgs/products/macbookair_03.jpg"
+            ]
+        },
+        {
+            "widget": "wid_images",
+            "data": [
+                "./assets/imgs/products/macbookair_11.jpg"
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        }
+    ]
+}

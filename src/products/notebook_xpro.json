@@ -1,0 +1,21 @@
+{
+    "name": "华为MateBook X Pro 13.9英寸笔记本",
+    "image": "./assets/imgs/products/xpro_01.jpg",
+    "content": [
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_images",
+            "data": [
+                "./assets/imgs/products/xpro_11.jpg",
+                "./assets/imgs/products/xpro_12.jpg"
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        }
+    ]
+}

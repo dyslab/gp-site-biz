@@ -1,0 +1,100 @@
+mixin output_widget(widget_name, widget_data)
+    if widget_name == 'wid_slider'
+        +wid_slider(widget_data)
+    if widget_name == 'wid_images'
+        +wid_images(widget_data)
+    else if widget_name == 'wid_tag'
+        +wid_tag(widget_data)
+    else if widget_name == 'wid_text'
+        +wid_text(widget_data)
+    else if widget_name == 'wid_table'
+        +wid_table(widget_data)
+    else if widget_name == 'wid_download'
+        +wid_download(widget_data)
+    else if widget_name == 'wid_vertical_space'
+        +wid_vertical_space(widget_data)
+    else if widget_name == 'wid_layout_shortcut'
+        +wid_layout_shortcut(widget_data)
+    else if widget_name == 'wid_layout_tabs'
+        +wid_layout_tabs(widget_data)
+
+mixin wid_slider(widget_data)
+    div.am-u-12
+        div.am-slider(id=`widget-slider-${(new Date()).valueOf()}`, data-am-flexslider=`{animation:"fade", controlNav:false, directionNav:false}`)
+            ul.am-slides
+                each item in widget_data
+                    li
+                        img(src=item)
+
+mixin wid_images(widget_data)
+    each item in widget_data
+        img.am-img-responsive.am-center(src=item)
+
+mixin wid_text(widget_data)
+    div.am-u-12!= widget_data
+
+mixin wid_table(widget_data)
+    -
+        var max_cols = 0;
+        for (var id in widget_data) {
+            if (widget_data[id].length > max_cols) {
+                max_cols = widget_data[id].length
+            }
+        }
+    div.am-u-12.am-scrollable-horizontal
+        table.am-table.am-table-bordered
+            each row in widget_data
+                if row.length < max_cols
+                    tr.am-active
+                        each ritem in row.slice(0, row.length-1)
+                            th!= ritem
+                        th(colspan= max_cols-row.length+1)!= row[row.length-1]
+                else if row.length == max_cols
+                    tr
+                        each ritem in row
+                            td!= ritem
+
+mixin wid_download(widget_data)
+    each item in widget_data
+        div.am-u-12
+            span.am-icon-download.am-margin-right-sm
+            a(href= item.link)= item.name
+
+mixin wid_vertical_space(widget_data)
+    div.am-u-12(style=`height: ${widget_data};`)
+
+mixin wid_tag(widget_data)
+    a.am-sr-only(id= widget_data.tag)
+
+mixin wid_layout_shortcut(widget_data)
+    div.am-u-lg-4.am-show-lg-up.am-topbar-fixed-bottom
+        ul
+            each item in widget_data
+                if item.widget == 'wid_tag'
+                    li
+                        a(href=`#${item.data.tag}`)= item.data.name
+    div.am-u-12.am-margin-0.am-padding-0
+        each item in widget_data
+            +output_widget(item.widget, item.data)
+
+mixin wid_layout_tabs(widget_data)
+    div.am-tabs.am-margin(data-am-tabs)
+        ul.am-nav.am-nav-tabs.am-tabs-nav
+            each item, index in widget_data
+                - 
+                    var active_class = ''
+                    if (index == 0) {
+                        active_class = 'am-active'
+                    }
+                li(class=active_class)
+                    a(href=`#tab_${index}`)= item.name
+        div.am-tabs-bd
+            each item, index in widget_data
+                - 
+                    var active_class = ''
+                    if (index == 0) {
+                        active_class = 'am-active am-in'
+                    }
+                div.am-tab-panel.am-fade(class=active_class, id=`tab_${index}`)
+                    each content_item in item.data
+                        +output_widget(content_item.widget, content_item.data)
