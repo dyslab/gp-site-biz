@@ -1,0 +1,11 @@
+{
+    "products": [
+        "desktop_imac27",
+        "notebook_xpro",
+        "notebook_macbookair"
+    ],
+    "services": [
+        "p_2019web",
+        "m_2019sale"
+    ]
+}

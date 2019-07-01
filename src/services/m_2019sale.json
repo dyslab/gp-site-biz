@@ -1,0 +1,78 @@
+{
+    "name": "电商销售行业技术维护服务",
+    "image": "./assets/imgs/services/m_2019sale_01.jpg",
+    "preface": "销售服务是指企业在产品销售活动过程中，为顾客提供的各种劳务的总称。企业向顾客销售产品时，总要伴随着一定的劳务付出，这些劳务付出是围绕着为顾客提供方便，满足顾客的需要，使顾客在购买产品前后感到满意而进行的，也是围绕着在顾客当中建立企业信誉，吸引顾客购买，增强企业的竞争能力而进行的。销售服务的根本宗旨就在于：让顾客满意，树立企业形象，促进产品销售。",
+    "content": [
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_text",
+            "data": "<center><h1>服务项目</h></center>"
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_icontext",
+            "data": [
+                {
+                    "icon": "am-icon-gear",
+                    "icon_color": "#3A3",
+                    "title": "设施管理",
+                    "text": "负责网络布线配线架的管理，确保配线的合理有序；掌握内部网络连接情况，以便发现问题迅速定位；掌握与外部网络的连接配置，监督网络通信情况，发现问题后与有关机构及时联系；实时监控整个公司或网吧内部网络的运转和通信流量情况。"
+                },
+                {
+                    "icon": "am-icon-hourglass-1",
+                    "icon_color": "#33A",
+                    "title": "操作系统",
+                    "text": "确保服务器操作系统工作正常，能够利用操作系统提供的和从网上下载的管理软件，时实监控系统的运转情况，优化系统性能，及时发现故障征兆并进行处理。对关键的服务器操作系统建立热备份，以免发生致命故障使网络陷入瘫痪状态。"
+                },
+                {
+                    "icon": "am-icon-truck",
+                    "icon_color": "#A33",
+                    "title": "网络安全",
+                    "text": "网络安全管理应该说是网络管理中难度比较高，而且很令管理员头疼的。因为用户可能会访问各类网站，为服务器设置好防火墙，对系统进行安全漏洞扫描，安装杀毒软件，并且要使病毒库是最新的，还要定期的进行病毒扫描。"
+                },
+                {
+                    "icon": "am-icon-folder-open",
+                    "icon_color": "#A3A",
+                    "title": "文件管理",
+                    "text": "重要的文件资料存储备份管理就是要避免这样的事情发生。重要的记费数据和重要的网络配置文件都需要进行备份，这就需要在服务器的存储系统中做镜像，来对数据加以保护进行容灾处理。"
+                }
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_text",
+            "data": "<center><h1>服务优势</h></center>"
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_image_half_left",
+            "data": {
+                "image": "./assets/imgs/services/m_2019sale_02.jpg",
+                "text": "<center><ul class='gb-site-services-ul-features'><li><span class='am-icon-check am-margin-right-sm'></span><span>费用低，行价低30%</span></li><li><span class='am-icon-check am-margin-right-sm'></span><span>速度快，24小时到位</span></li><li><span class='am-icon-check am-margin-right-sm'></span><span>技术好，专业维护员</span></li></ul></center>"
+            }
+        },
+        {
+            "widget": "wid_image_half_right",
+            "data": {
+                "image": "./assets/imgs/services/m_2019sale_03.jpg",
+                "text": "<center><ul class='gb-site-services-ul-features'><li><span class='am-icon-check am-margin-right-sm'></span><span>反应快，客服专员制</span></li><li><span class='am-icon-check am-margin-right-sm'></span><span>能力强，研究院支持</span></li><li><span class='am-icon-check am-margin-right-sm'></span><span>口碑佳，获赞誉无数</span></li></ul></center>"
+            }
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        }
+    ]
+}

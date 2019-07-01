@@ -1,0 +1,40 @@
+extends ../baseviews/base_layout
+
+block header-scripts
+    title Gulp Demo Website 服务列表页
+
+block body-contents
+    include services_banner
+
+    div.am-container
+        //- Breadcrumb导航条
+        div.am-g.am-padding-vertical-lg
+            ol.am-breadcrumb
+                li
+                    a(href="./") 首页
+                li.am-active 服务
+
+        //- 服务列表
+        each citem in data.servicelist
+            div.am-g.am-padding-bottom-lg
+                div.am-u-12.am-padding-bottom-sm
+                    h1
+                        span.am-margin-right-sm(class=citem.icon)
+                        span.custom-text-shadow= citem.name
+                div.am-u-12.am-padding-bottom-sm
+                    ul.am-avg-sm-1.am-avg-md-1.am-avg-lg-1
+                        each sitem in citem.services_link
+                            li
+                                a(href=`service_${sitem.id}.html`)
+                                    div.am-g.gb-site-services-panel.am-padding-lg
+                                        div.am-u-md-4.am-padding-bottom-lg
+                                            img(src= sitem.image)
+                                        div.am-u-md-8
+                                            h1= sitem.name
+                                            p= sitem.preface
+
+block footer-scripts
+    script.
+        $(document).ready(function() {
+            $("ul.am-topbar-nav li:eq(2)").addClass("am-active");
+        });

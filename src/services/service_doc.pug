@@ -1,10 +1,10 @@
 extends ../baseviews/base_layout
 
 block header-scripts
-    title Gulp Demo Website 产品详情页
+    title Gulp Demo Website 服务详情页
 
 block body-contents
-    include products_banner
+    include services_banner
     include ../baseviews/base_widgets
 
     div.am-container
@@ -14,7 +14,7 @@ block body-contents
                 li
                     a(href="./") 首页
                 li
-                    a(href="./product_list.html") 产品
+                    a(href="./service_list.html") 服务
                 li.am-active 详情
 
         //- 通过小部件输出内容
@@ -23,7 +23,7 @@ block body-contents
                 span.am-text-xxl.custom-text-shadow-m= data.name
             each widget_content in data.content
                 +output_widget(widget_content.widget, widget_content.data)
-
+        
     //- Amaze UI Gotop小部件
     div.am-gotop.am-gotop-fixed(data-am-widget="gotop")
         a.am-icon-arrow-circle-up.am-text-xxl(href="#")
@@ -31,5 +31,5 @@ block body-contents
 block footer-scripts
     script.
         $(document).ready(function() {
-            $("ul.am-topbar-nav li:eq(1)").addClass("am-active");
+            $("ul.am-topbar-nav li:eq(2)").addClass("am-active");
         });

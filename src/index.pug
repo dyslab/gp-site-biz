@@ -21,6 +21,44 @@ block body-contents
             strong 
                 blockquote.am-text-xxl#rand-motto
 
+    //- Products Link
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-cubes.am-margin-right-sm.custom-text-shadow
+            span.custom-text-shadow 最新产品 Products
+        ul.am-avg-sm-1.am-avg-md-2.am-avg-lg-3
+            each pitem in data.products_json
+                li
+                    a(href=`product_${pitem.id}.html`)
+                        div.am-padding-bottom-sm.am-padding-right-xs
+                            div.gb-site-products-panel.am-text-center
+                                img.am-img-responsive(src= pitem.image)
+                                h3= pitem.name
+    div.am-g.am-g-fixed.am-text-right.am-padding-bottom-xl.am-padding-horizontal-lg
+        a(href="product_list.html")
+            span 更多产品
+            span.am-margin-left-sm.am-icon-chevron-circle-right 
+
+    //- Services Link
+    div.am-g.am-g-fixed.am-center.am-padding-top-xl.am-padding-horizontal-lg
+        h1.am-link-muted
+            span.am-icon-gears.am-margin-right-sm.custom-text-shadow
+            span.custom-text-shadow 技术服务 Services
+        ul.am-avg-sm-1.am-avg-md-1.am-avg-lg-1
+            each sitem in data.services_json
+                li
+                    a(href=`service_${sitem.id}.html`)
+                        div.am-g.gb-site-services-panel.am-padding-vertical-lg
+                            div.am-u-md-4.am-padding-bottom-lg
+                                img(src= sitem.image)
+                            div.am-u-md-8
+                                h1= sitem.name
+                                p= sitem.preface
+    div.am-g.am-g-fixed.am-text-right.am-padding-bottom-xl.am-padding-horizontal-lg
+        a(href="service_list.html")
+            span 更多服务
+            span.am-margin-left-sm.am-icon-chevron-circle-right 
+
     //- News Links Part
     div.am-g.am-g-fixed.am-padding-top-xl.am-padding-horizontal-lg
         h1.am-link-muted
@@ -36,7 +74,9 @@ block body-contents
                         p.am-text-sm.am-link-muted= nitem.datetime
                         p.am-text-sm.am-link-muted= nitem.preface
     div.am-g.am-g-fixed.am-text-right.am-padding-bottom-xl.am-padding-horizontal-lg
-        a(href="news_list_1.html") 更多新闻 >>>
+        a(href="news_list_1.html")
+            span 更多新闻
+            span.am-margin-left-sm.am-icon-chevron-circle-right 
 
 block footer-scripts
     script.

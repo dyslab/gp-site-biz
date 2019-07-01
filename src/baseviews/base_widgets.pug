@@ -1,8 +1,16 @@
 mixin output_widget(widget_name, widget_data)
     if widget_name == 'wid_slider'
         +wid_slider(widget_data)
-    if widget_name == 'wid_images'
+    else if widget_name == 'wid_images'
         +wid_images(widget_data)
+    else if widget_name == 'wid_image_half_left'
+        +wid_image_half_left(widget_data)
+    else if widget_name == 'wid_image_half_right'
+        +wid_image_half_right(widget_data)
+    else if widget_name == 'wid_logolinks'
+        +wid_logolinks(widget_data)
+    else if widget_name == 'wid_icontext'
+        +wid_icontext(widget_data)
     else if widget_name == 'wid_tag'
         +wid_tag(widget_data)
     else if widget_name == 'wid_text'
@@ -28,10 +36,46 @@ mixin wid_slider(widget_data)
 
 mixin wid_images(widget_data)
     each item in widget_data
-        img.am-img-responsive.am-center(src=item)
+        img.am-img-responsive.am-center(src=item, data-am-scrollspy="{animation: 'fade', repeat: false}")
+
+mixin wid_image_half_left(widget_data)
+    div.am-g
+        div.am-u-sm-12.am-u-lg-6.am-padding-lg(data-am-scrollspy="{animation: 'slide-left', repeat: false}")
+            img.am-img-responsive.am-center(src=widget_data.image)
+        div.am-u-sm-12.am-u-lg-6.am-padding-sm(data-am-scrollspy="{animation: 'slide-right', repeat: false}")
+            p!= widget_data.text
+
+mixin wid_image_half_right(widget_data)
+    div.am-g
+        div.am-u-sm-12.am-u-lg-6.am-padding-sm(data-am-scrollspy="{animation: 'slide-left', repeat: false}")
+            p!= widget_data.text
+        div.am-u-sm-12.am-u-lg-6.am-padding-lg(data-am-scrollspy="{animation: 'slide-right', repeat: false}")
+            img.am-img-responsive.am-center(src=widget_data.image)
+
+mixin wid_logolinks(widget_data)
+    ul.am-avg-sm-2.am-avg-md-3.am-avg-lg-4
+        each item in widget_data
+            li
+                a(href=item.link, target="_blank")
+                    div.am-padding-lg.gb-site-services-logolink
+                        img.am-img-responsive.am-center(src=item.image, alt=item.name, title=item.name)
+
+mixin wid_icontext(widget_data)
+    ul.am-avg-sm-1.am-avg-md-2
+        each item in widget_data
+            li
+                div.am-padding-sm(data-am-scrollspy="{animation: 'slide-bottom', delay: 300, repeat: false}")
+                    table.gb-site-icontext
+                        tr
+                            td
+                                span.gb-site-icontext-icon.am-margin-left-lg.am-margin-right-lg(class=item.icon, style=`color:${item.icon_color};`)
+                            td
+                                h2= item.title
+                                p!=item.text
 
 mixin wid_text(widget_data)
-    div.am-u-12!= widget_data
+    div.am-u-12
+        article!= widget_data
 
 mixin wid_table(widget_data)
     -

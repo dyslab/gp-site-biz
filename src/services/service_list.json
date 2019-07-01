@@ -1,0 +1,20 @@
+[
+    {
+        "id": "project",
+        "name": "项目实施服务",
+        "icon": "am-icon-flag",
+        "services": [
+            "p_2019web",
+            "p_2019app"
+        ]
+    },
+    {
+        "id": "maintenance",
+        "name": "技术维护服务",
+        "icon": "am-icon-gear",
+        "services": [
+            "m_2019sale",
+            "m_2019online"
+        ]
+    }
+]

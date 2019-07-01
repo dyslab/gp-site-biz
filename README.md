@@ -2,7 +2,9 @@
 
 Gulp Small Biz Website Demo.
 
-20-06-2019
+MIT Licensed.
+
+
 
 ## Brief Intro:
 

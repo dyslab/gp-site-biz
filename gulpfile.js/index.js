@@ -62,18 +62,47 @@ function get_news_jsons(news_list, start, end) {
     return news_jsons;
 }
 
+//  service数据处理：读取指定ID（serviceid）的JSON图片/名称数据并按格式返回
+function get_service_json(serviceid) {
+    let tmpobj = get_jsondata(`./src/services/${serviceid}.json`);
+    return {
+        id: serviceid,
+        name: tmpobj.name,
+        image: tmpobj.image,
+        preface: tmpobj.preface
+    };
+}
+
+//  service_list页面数据处理：返回service_list页面所需数据
+function get_service_list_data() {
+    let sljson = get_jsondata('./src/services/service_list.json');
+    for(let cid in sljson) {
+        sljson[cid].services_link = []
+        for (let pid in sljson[cid].services) {
+            sljson[cid].services_link.push(get_service_json(sljson[cid].services[pid]))
+        }
+    }
+
+    return { servicelist: sljson };
+}
+
+//  product数据处理：读取指定ID（productid）的JSON图片/名称数据并按格式返回
+function get_product_json(productid) {
+    let tmpobj = get_jsondata(`./src/products/${productid}.json`);
+    return {
+        id: productid,
+        name: tmpobj.name,
+        image: tmpobj.image
+    };
+}
+
 //  product_list页面数据处理：返回product_list页面所需数据
 function get_product_list_data() {
     let plistjson = get_jsondata('./src/products/product_list.json');
     for(let cid in plistjson) {
         plistjson[cid].products_link = []
         for (let pid in plistjson[cid].products) {
-            let tmpobj = get_jsondata(`./src/products/${plistjson[cid].products[pid]}.json`);
-            plistjson[cid].products_link.push({
-                id: plistjson[cid].products[pid],
-                name: tmpobj.name,
-                image: tmpobj.image
-            })
+            plistjson[cid].products_link.push(get_product_json(plistjson[cid].products[pid]))
         }
     }
 
@@ -93,7 +122,17 @@ function get_about_data() {
 function get_index_data() {
     const MAX_NEWS_ON_INDEX = 6 // index页面显示的新闻数量
 
-    let indexjson = {};
+    let indexjson = get_jsondata('./src/index.json');
+    // 处理products数据
+    indexjson.products_json = [];
+    for (let id in indexjson.products) {
+        indexjson.products_json.push(get_product_json(indexjson.products[id]));
+    }
+    // 处理services数据
+    indexjson.services_json = [];
+    for (let id in indexjson.services) {
+        indexjson.services_json.push(get_service_json(indexjson.services[id]));
+    }
     indexjson.mottos = get_mottos();
     indexjson.newsjsons = get_news_jsons(get_news_list(), 0, MAX_NEWS_ON_INDEX);
 
@@ -148,8 +187,37 @@ function news2html(cb) {
     }
 }
 
+// PUG模板文件生成HTML（服务列表）
+function servicelist2html() {
+    return src('src/services/service_list.pug')
+    .pipe(pug({
+        locals : { data: get_service_list_data() }
+    }))
+   .pipe(dest('dist/'));
+}
+
+// PUG模板文件生成HTML（服务文档）
+function services2html(cb) {
+    const slist = get_jsondata('./src/services/service_list.json');
+
+    for(let cid in slist) {
+        for(let sid in slist[cid].services) {
+            let fpath = `./src/services/${slist[cid].services[sid]}.json`;
+            if (fs.existsSync(fpath)) {
+                src('src/services/service_doc.pug')
+                .pipe(pug({
+                    locals : { data: get_jsondata(fpath) }
+                }))
+                .pipe(rename({ basename: `service_${slist[cid].services[sid]}` }))
+                .pipe(dest('dist/'));
+                cb();
+            }
+        }
+    }
+}
+
 // PUG模板文件生成HTML（产品列表）
-function productslist2html() {
+function productlist2html() {
     return src('src/products/product_list.pug')
     .pipe(pug({
         locals : { data: get_product_list_data() }
@@ -212,9 +280,11 @@ function babel2js() {
 
 exports.default = series(babel2js, parallel(index2html, about2html));
 exports.news = parallel(index2html, news2html, newslist2html);
-exports.products = parallel(index2html, products2html, productslist2html);
+exports.services = parallel(index2html, services2html, servicelist2html);
+exports.products = parallel(index2html, products2html, productlist2html);
 exports.all = series(babel2js, parallel(
     index2html, about2html, 
     news2html, newslist2html,
-    products2html, productslist2html
+    services2html, servicelist2html,
+    products2html, productlist2html
 ));

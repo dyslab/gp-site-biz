@@ -43,6 +43,21 @@ html {
   background-size: 32px 32px;
 }
 
+article p {
+  text-indent: 2em;
+  line-height: 2em;
+}
+
+table.gb-site-icontext {
+  border: 0px;
+}
+table.gb-site-icontext tr {
+  vertical-align:top;
+}
+.gb-site-icontext-icon {
+  font-size:48px;
+}
+
 /*
  *
  *  For Index pages
@@ -71,4 +86,49 @@ html {
   border-color: #ddd;
   top: -0.15rem;
   box-shadow: 0 0.5rem 1rem rgba(52, 58, 64, 0.15); 
+}
+
+/*
+ *
+ *  For Services pages
+ *
+ */
+.gb-site-services-panel {
+  color: #444;
+}
+.gb-site-services-panel div img {
+  width: 95%;
+}
+.gb-site-services-panel:hover {
+  color: #44A;
+}
+.gb-site-services-panel:hover div img {
+  transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+}
+
+.gb-site-services-logolink img {
+  opacity: 0.75;
+  height: 36px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+}
+.gb-site-services-logolink:hover img {
+  opacity: 1;
+  filter: none;
+  -webkit-filter: none;
+  -ms-filter: none;
+}
+
+.gb-site-services-ul-features {
+  list-style:none;
+  font-size: 2.75rem;
+  color: #490;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
 }
