@@ -9,7 +9,7 @@
         },
         {
             "widget": "wid_text",
-            "data": "<center><h1>服务项目</h></center>"
+            "data": "<center><h1>服务项目</h1></center>"
         },
         {
             "widget": "wid_vertical_space",
@@ -50,7 +50,7 @@
         },
         {
             "widget": "wid_text",
-            "data": "<center><h1>服务优势</h></center>"
+            "data": "<center><h1>服务优势</h1></center>"
         },
         {
             "widget": "wid_vertical_space",
@@ -69,6 +69,47 @@
                 "image": "./assets/imgs/services/m_2019sale_03.jpg",
                 "text": "<center><ul class='gb-site-services-ul-features'><li><span class='am-icon-check am-margin-right-sm'></span><span>反应快，客服专员制</span></li><li><span class='am-icon-check am-margin-right-sm'></span><span>能力强，研究院支持</span></li><li><span class='am-icon-check am-margin-right-sm'></span><span>口碑佳，获赞誉无数</span></li></ul></center>"
             }
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_text",
+            "data": "<center><h1>服务套餐</h1></center>"
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_card_promotions",
+            "data": [
+                {
+                    "title": "云服务器维护",
+                    "promotion": "最具性价比",
+                    "highlight": "99元/月<span class='am-text-sm'>起</span>",
+                    "description": "1台云服务器维护<br>不限空间、流量大小",
+                    "linktext": "详情点击",
+                    "link": "#"
+                },
+                {
+                    "title": "企业网维护",
+                    "promotion": "",
+                    "highlight": "699元/月",
+                    "description": "每周日常维护<br>含24小时应急处置10次",
+                    "linktext": "详情点击",
+                    "link": "#"
+                },
+                {
+                    "title": "促销增长计划",
+                    "promotion": "潜力VIP计划",
+                    "highlight": "15999元/年",
+                    "description": "每周促销计划更新维护<br>24个月销量增长套餐",
+                    "linktext": "详情点击",
+                    "link": "#"
+                }
+            ]
         },
         {
             "widget": "wid_vertical_space",

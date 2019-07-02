@@ -1,12 +1,18 @@
 mixin output_widget(widget_name, widget_data)
     if widget_name == 'wid_slider'
         +wid_slider(widget_data)
+    else if widget_name == 'wid_slider_thumb_4x'
+        +wid_slider_thumb_4x(widget_data)
+    else if widget_name == 'wid_slider_carousel_links'
+        +wid_slider_carousel_links(widget_data)
     else if widget_name == 'wid_images'
         +wid_images(widget_data)
     else if widget_name == 'wid_image_half_left'
         +wid_image_half_left(widget_data)
     else if widget_name == 'wid_image_half_right'
         +wid_image_half_right(widget_data)
+    else if widget_name == 'wid_card_promotions'
+        +wid_card_promotions(widget_data)
     else if widget_name == 'wid_logolinks'
         +wid_logolinks(widget_data)
     else if widget_name == 'wid_icontext'
@@ -15,6 +21,12 @@ mixin output_widget(widget_name, widget_data)
         +wid_tag(widget_data)
     else if widget_name == 'wid_text'
         +wid_text(widget_data)
+    else if widget_name == 'wid_article'
+        +wid_article(widget_data)
+    else if widget_name == 'wid_accordion'
+        +wid_accordion(widget_data)
+    else if widget_name == 'wid_alert'
+        +wid_alert(widget_data)
     else if widget_name == 'wid_table'
         +wid_table(widget_data)
     else if widget_name == 'wid_download'
@@ -28,11 +40,35 @@ mixin output_widget(widget_name, widget_data)
 
 mixin wid_slider(widget_data)
     div.am-u-12
-        div.am-slider(id=`widget-slider-${(new Date()).valueOf()}`, data-am-flexslider=`{animation:"fade", controlNav:false, directionNav:false}`)
+        div.am-slider(id=`widget-slider-${(new Date()).valueOf()}`, 
+        data-am-flexslider=`{animation:"fade", controlNav:false, directionNav:false}`)
             ul.am-slides
                 each item in widget_data
                     li
                         img(src=item)
+
+mixin wid_slider_thumb_4x(widget_data)
+    div.am-u-12
+        div.am-slider.am-slider-default(id=`widget-slider-thumb-${(new Date()).valueOf()}`, 
+        data-am-flexslider=`{controlNav: "thumbnails", directionNav: false, slideshow: false}`)
+            ul.am-slides
+                each item in widget_data
+                    li(data-thumb=item)
+                        img(src=item)
+
+mixin wid_slider_carousel_links(widget_data)
+    div.am-u-12
+        div.am-slider.am-slider-b3.am-slider-carousel(id=`widget-slider-carousel-${(new Date()).valueOf()}`, 
+        style='box-shadow: none; -webkit-box-shadow: none;',
+        data-am-flexslider=`{itemWidth: 200, itemMargin: 5, move: 1}`)
+            ul.am-slides
+                each item in widget_data
+                    li
+                        if item.link != ''
+                            a(href=item.link, target='_blank')
+                                img(src=item.image)
+                        else
+                            img(src=item.image)
 
 mixin wid_images(widget_data)
     each item in widget_data
@@ -51,6 +87,27 @@ mixin wid_image_half_right(widget_data)
             p!= widget_data.text
         div.am-u-sm-12.am-u-lg-6.am-padding-lg(data-am-scrollspy="{animation: 'slide-right', repeat: false}")
             img.am-img-responsive.am-center(src=widget_data.image)
+
+mixin wid_card_promotions(widget_data)
+    ul.am-avg-sm-1.am-avg-md-2.am-avg-lg-3
+        each item in widget_data
+            li
+                div.am-padding-sm(data-am-scrollspy="{animation: 'scale-up', repeat: false}")
+                    -
+                        var promotion_class = '';
+                        if (item.promotion != '') {
+                            promotion_class = 'am-panel-warning gb-site-card-background-p';
+                        }
+                    div.am-panel.am-panel-default.am-padding-lg.custom-text-shadow(class=promotion_class)
+                        div.am-panel-bd
+                            strong= item.title
+                            if item.promotion != ''
+                                span.am-badge.am-round.am-text-sm.am-badge-success.am-margin-left-sm= item.promotion
+                            p
+                                strong.am-text-xxl!= item.highlight
+                            p!= item.description
+                            if item.link != '' && item.linktext != ''
+                                a.am-btn.am-btn-secondary.am-radius(href=item.link, role='button')= item.linktext
 
 mixin wid_logolinks(widget_data)
     ul.am-avg-sm-2.am-avg-md-3.am-avg-lg-4
@@ -76,6 +133,39 @@ mixin wid_icontext(widget_data)
 mixin wid_text(widget_data)
     div.am-u-12
         article!= widget_data
+
+mixin wid_article(widget_data)
+    div.am-u-12
+        article.am-article
+            div.am-article-hd
+                center
+                    if widget_data.title != ''
+                        h1.am-article-title= widget_data.title
+                    if widget_data.meta != ''
+                        p.am-article-meta!= widget_data.meta
+            div.am-article-bd!= widget_data.text
+
+mixin wid_alert(widget_data)
+    div.am-u-12.am-padding-lg
+        div.am-alert(data-am-alert, class=widget_data.class)
+            if widget_data.close
+                button.am-close(type="button") &times;
+            p!= widget_data.text
+
+mixin wid_accordion(widget_data)
+    div.am-u-12.am-padding-lg
+        div.am-panel-group#widget-accordion
+            each item, index in widget_data
+                div.am-panel.am-panel-primary
+                    div.am-panel-hd
+                        h4.am-panel-title(data-am-collapse=`{parent: '#widget-accordion', target: '#widget-accordion-panel-${index}'}`)!= item.title
+                    -
+                        var active_class = '';
+                        if(index == 0) {
+                            active_class = 'am-in';
+                        }
+                    div.am-panel-collapse.am-collapse(id=`widget-accordion-panel-${index}`, class=active_class)
+                        div.am-panel-bd!= item.text
 
 mixin wid_table(widget_data)
     -

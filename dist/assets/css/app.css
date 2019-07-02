@@ -44,8 +44,11 @@ html {
 }
 
 article p {
-  text-indent: 2em;
-  line-height: 2em;
+  text-indent: 3.15rem;
+  line-height: 3.15rem;
+}
+article blockquote {
+  font-size: 2rem;
 }
 
 table.gb-site-icontext {
@@ -56,6 +59,10 @@ table.gb-site-icontext tr {
 }
 .gb-site-icontext-icon {
   font-size:48px;
+}
+
+.gb-site-card-background-p {
+  background-color: #FFD;
 }
 
 /*

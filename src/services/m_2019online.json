@@ -2,5 +2,72 @@
     "name": "Online在线维护服务",
     "image": "./assets/imgs/services/m_2019online_01.jpg",
     "preface": "网络应用系统的管理主要是针对为公司或网吧提供服务的功能服务器的管理。这些服务器主要包括：代理服务器、游戏服务器、文件服务器、ERP服务器、E-MAIL服务器等。要熟悉服务器的硬件和软件配置，并对软件配置进行备份。公司要对ERP进行正常运行管理，防止出错，E-MAIL进行监控，保证公司正常通信业务等，网吧要对游戏软件、音频和视频文件进行时常的更新，以满足用户的要求。",
-    "content": []
+    "content": [
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        },
+        {
+            "widget": "wid_text",
+            "data": "<center><h1>服务对象品牌展示</h1></center>"
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_slider_carousel_links",
+            "data": [
+                {
+                    "link": "",
+                    "image": "./assets/imgs/logo-1.jpg"
+                },
+                {
+                    "link": "https://www.cnblogs.com/",
+                    "image": "./assets/imgs/logo-2.jpg"
+                },
+                {
+                    "link": "",
+                    "image": "./assets/imgs/logo-3.jpg"
+                },
+                {
+                    "link": "http://www.zol.com.cn/",
+                    "image": "./assets/imgs/logo-4.jpg"
+                },
+                {
+                    "link": "https://news.sina.com.cn/",
+                    "image": "./assets/imgs/logo-5.png"
+                },
+                {
+                    "link": "http://www.lifeweek.com.cn/",
+                    "image": "./assets/imgs/logo-6.png"
+                }
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        },
+        {
+            "widget": "wid_text",
+            "data": "<center><h1>维护场景</h1></center>"
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "16px"
+        },
+        {
+            "widget": "wid_slider_thumb_4x",
+            "data": [
+                "./assets/imgs/sample-6.jpg",
+                "./assets/imgs/sample-7.jpg",
+                "./assets/imgs/sample-8.jpg",
+                "./assets/imgs/sample-4.jpg"
+            ]
+        },
+        {
+            "widget": "wid_vertical_space",
+            "data": "32px"
+        }
+    ]
 }

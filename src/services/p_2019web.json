@@ -9,7 +9,7 @@
         },
         {
             "widget": "wid_text",
-            "data": "<h1>前言</h>"
+            "data": "<h1>前言</h1>"
         },
         {
             "widget": "wid_vertical_space",
@@ -35,7 +35,7 @@
         },
         {
             "widget": "wid_text",
-            "data": "<h1>解决方案</h>"
+            "data": "<h1>解决方案</h1>"
         },
         {
             "widget": "wid_vertical_space",
@@ -61,7 +61,7 @@
         },
         {
             "widget": "wid_text",
-            "data": "<h1>典型客户</h>"
+            "data": "<h1>典型客户</h1>"
         },
         {
             "widget": "wid_vertical_space",
@@ -98,7 +98,7 @@
         },
         {
             "widget": "wid_text",
-            "data": "<h1>资料下载</h>"
+            "data": "<h1>资料下载</h1>"
         },
         {
             "widget": "wid_vertical_space",
