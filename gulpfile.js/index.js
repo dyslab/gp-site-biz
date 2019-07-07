@@ -151,7 +151,7 @@ function get_index_data() {
 
 // PUG模板文件生成HTML（新闻列表）
 function newslist2html(cb) {
-    const MAX_NEWS_PER_PAGE = 3 // 新闻列表页每页显示的新闻数量
+    const MAX_NEWS_PER_PAGE = 5 // 新闻列表页每页显示的新闻数量
     const news_list = get_news_list();
     const pagecount = Math.trunc((news_list.length - 1) / MAX_NEWS_PER_PAGE) + 1; // 获取新闻导航列表页的总页数。
 
