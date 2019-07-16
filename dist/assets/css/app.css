@@ -51,6 +51,11 @@ article blockquote {
   font-size: 2rem;
 }
 
+figcaption {
+  color: #555;
+  font-style: italic;
+}
+
 table.gb-site-icontext {
   border: 0px;
 }
