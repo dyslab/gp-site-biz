@@ -5,6 +5,9 @@ Gulp Small Biz Website Demo.
 MIT Licensed.
 
 
+## Click [GitHub Page Demo](https://dyslab.github.io/gp-site-biz/dist/) to check out this project.
+
+
 ## [News Update Memo](./src/news/README.md)
 
 
