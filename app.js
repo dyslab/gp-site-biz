@@ -31,8 +31,7 @@ app.use(function (err, req, res, next) {
   res.render('error', { title: 'ERROR' });
 })
 
-console.log('Web Server Started.');
-console.log(`Link: [http://localhost:${APP_PORT}]`);
-console.log(`Ctrl+C to Exit...`);
+console.log(`Web Server Started. Serving Link: [\x1b[32mhttp://localhost:${APP_PORT}/dist/\x1b[0m]\n`);
+console.log(`Ctrl + C to Exit...\n`);
 
 app.listen(APP_PORT);

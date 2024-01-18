@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "pm2": "pm2 start ecosystem.config.js"
+    "start:pm2": "pm2 start ecosystem.config.js"
   },
   "keywords": [
     "Gulp",
@@ -17,7 +17,8 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0"
+    "gulp-babel": "^8.0.0",
+    "mime-score": "^2.0.4"
   },
   "dependencies": {
     "express": "^4.18.2",

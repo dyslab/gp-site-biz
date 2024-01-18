@@ -2,14 +2,14 @@ const sitename = 'Gulp Demo Site 演示网站';
 const fromyear = 2018;
 const toyear = (new Date()).getFullYear();
 
-document.write('<div class="am-g am-g-fixed am-padding-vertical-lg"><hr><center>');
-document.write(`<a class="am-link-muted" href="./">${sitename}</a> <span style="color: #999;">版权所有 ©${fromyear}-${toyear}</span><br>`);
+document.write('<div class="am-g am-g-fixed am-padding-vertical-lg am-footer-default"><hr><center>');
+document.write(`<div class="am-footer-miscs"><i class="am-icon-copyright"></i> ${fromyear} - ${toyear} <a href="./">${sitename}</a> 版权所有<br></div>`);
 document.write(
-    '<small><span style="color: #999;">Powered by ' +
-    '<a class="am-link-muted" href="http://amazeui.org" target="_blank">Amaze UI</a>,' +
-    '<a class="am-link-muted" href="https://gulpjs.com" target="_blank">Gulp</a>, Supported by ' +
-    '<a class="am-link-muted" href="https://jquery.com/" target="_blank">jQuery</a>,' +
-    '<a class="am-link-muted" href="http://nodejs.cn/" target="_blank">node.js</a>.' +
-    '</span></small>'
+    '<div class="am-footer-miscs"><small>Powered by' +
+    ' <a href="https://amazeui.shopxo.net/" target="_blank">Amaze UI</a>,' +
+    ' <a href="https://gulpjs.com" target="_blank">Gulp</a>, Supported by' +
+    ' <a href="https://jquery.com/" target="_blank">jQuery</a>,' +
+    ' <a href="http://nodejs.cn/" target="_blank">node.js</a>.' +
+    '</small></div>'
 );
 document.write('</center></div>');

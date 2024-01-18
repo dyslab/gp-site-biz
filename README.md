@@ -1,30 +1,35 @@
-# APPNAME: gp-site-biz
+## Small biz website demo - powered by _Gulp 4_
 
-Gulp Small Biz Website Demo.
+![Gulp 4 Demo](./src/gulp4-demo.svg) &nbsp;&nbsp;![MIT License](./src/MIT-license.svg)
 
-MIT Licensed.
+### Notes:
 
-
-## Click [GitHub Page Demo](https://dyslab.github.io/gp-site-biz/dist/) to check out this project.
-
-
-## [News Update Memo](./src/news/README.md)
+- Click [HERE](https://dyslab.github.io/gp-site-biz/dist/) to check out Github page demo of this project.
 
 
-## Brief intro for beginner after cloned or downloaded:
+- Click [HERE](./src/news/README.md) to check out news update intro for this project.
 
-- `npm install gulp-cli -g` Install gulp command line interface. **_Note: This is a one-time installation._**
 
-- `npm install pm2 -g` Install PM2 command line interface. **_Note: This is a one-time installation._**
+### Brief intro for beginner after cloned or downloaded:
 
-- `npm start` or `npm run pm2` Start local web server. Demo page link is `http://localhost:8060/dist/`.
+```bash
 
-- `gulp` Generate index/about pages, and process babel js files.
+# Notes: following CLIs are a one-time installation.
+npm install gulp-cli -g # Install gulp command line interface.
+npm install pm2 -g # Install PM2 command line interface.
 
-- `gulp news` Generate news-related pages.
+# Notes: following CLIs use for test and development. and build.
+npm start   # Start local web server. Demo page link is `http://localhost:8060/dist/`.
+npm run start:pm2   # Start local web server by PM2. Web server address and port like above. 
 
-- `gulp products` Generate products-related pages.
+# Notes: following CLIs use for build and generation.
+gulp    # Generate index/about pages and process babel js files.
+gulp news   # Generate news-related pages.
+gulp products   # Generate products-related pages.
+gulp services   # Generate services-related pages.
+gulp all    # Generate all pages.
+```
 
-- `gulp services` Generate services-related pages.
+<br>
 
-- `gulp all` Generate all pages.
+_··· END ···_
