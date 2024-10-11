@@ -1,11 +1,14 @@
 {
   "name": "gp-site-biz",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Gulp Small Biz Website Demo.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start:pm2": "pm2 start ecosystem.config.js"
+    "start:pm2": "pm2 start ecosystem.config.js",
+    "build": "gulp all",
+    "version:minor": "npm version minor --no-git-tag-version --no-commit-hooks",
+    "version:patch": "npm version patch --no-git-tag-version --no-commit-hooks"
   },
   "keywords": [
     "Gulp",
@@ -21,10 +24,10 @@
     "mime-score": "^2.0.4"
   },
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "lodash": "^4.17.21",
-    "pug": "^3.0.1"
+    "pug": "^3.0.3"
   }
 }
