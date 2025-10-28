@@ -1,6 +1,6 @@
 # Small biz website demo - powered by _Gulp v4_
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/dyslab/gp-site-biz) &nbsp; [![Gulp v4](./src/gulp-v4.svg)](https://gulpjs.com/) &nbsp; [![MIT License](./src/MIT-license.svg)](./LICENSE)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/dyslab/gp-site-biz) &nbsp; [![Gulp v4](./src/Gulp-v5-CF6667.svg)](https://gulpjs.com/) &nbsp; [![MIT License](./src/MIT-license.svg)](./LICENSE)
 
 ## Notes
 
@@ -15,6 +15,7 @@
 # Notes: following CLIs are a one-time installation
 npm install gulp-cli -g # Install gulp command line interface
 npm install pm2 -g # Install PM2 command line interface
+npm install # Install all dependencies of this project
 
 # Notes: following command lines use for test and development. and build
 npm start   # Start local web server. Demo page link is `http://localhost:8060/dist/`

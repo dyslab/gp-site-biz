@@ -1,6 +1,6 @@
 {
   "name": "gp-site-biz",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Gulp Small Biz Website Demo.",
   "main": "app.js",
   "scripts": {
@@ -17,16 +17,16 @@
   "author": "DYSLAB",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "gulp": "^4.0.2",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "gulp": "^5.0.1",
     "gulp-babel": "^8.0.0",
     "mime-score": "^2.0.4"
   },
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^5.1.0",
     "gulp-pug": "^5.0.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.1.0",
     "lodash": "^4.17.21",
     "pug": "^3.0.3"
   }
